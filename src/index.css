@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@theme {
+  --color-primary: #00204C;
+  --color-secondary: #E8A500;
+  --color-accent: #f4a100;
+  --color-bg: #F1F5F9;
+  --font-sans: 'Inter', Helvetica, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: #333;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
