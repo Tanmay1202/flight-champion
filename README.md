@@ -1,16 +1,48 @@
-# React + Vite
+# Flights Champion — Australia Flight Booking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive, high-fidelity rebuild of the [Flights Champion](https://flightschampion.com.au/) website. Built using **React 19**, **Tailwind CSS v4**, **React Router v7**, and **Vite**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Interactive Flight Search Form**: Supports Round Trip, One Way, and Multi-City routes with origin/destination airport autocomplete, swap control, and passenger counter popup (Adults, Children, Infants, Cabin Class).
+- **Search Results & Filters**: Multi-criteria filtering by stops (Non-stop, 1 Stop, 2+ Stops), dynamic budget sliders, time-of-day slots, along with itinerary details, baggage allowance modals, and instant sharing (WhatsApp, Email, Clipboard).
+- **Enquiry & Passenger Checkout Flow**: Passenger details form (Title, Name, Gender, DOB, Nationality, Travel Document, Expiry, Contact Info) with required validation and booking confirmation summary.
+- **Content & Guides**: Domestic & International deals tables, Top Picks from Sydney, verified Google reviews, Airline partners showcase, and Top Destinations guides for India, Nepal, Pakistan, Bangladesh, and Sri Lanka.
+- **Informational & Legal Pages**: About Us, FAQ & Help Center with 24/7 hotline callouts, Australian Privacy Principles compliant Privacy Policy, and Terms & Conditions.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Deployment to Vercel
 
-## Expanding the Oxlint configuration
+This repository is pre-configured for zero-config deployment on [Vercel](https://vercel.com):
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+1. Import this repository (`https://github.com/Tanmay1202/flight-champion.git`) into your Vercel Dashboard.
+2. Vercel automatically detects the **Vite** framework preset:
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+3. Click **Deploy**.
+
+The included [`vercel.json`](./vercel.json) configures SPA route rewrites to ensure direct URL navigation and page refreshes work across all client-side routes (`/search`, `/booking`, `/about`, `/faq`, etc.).
+
+---
+
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run linter
+npm run lint
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+```
