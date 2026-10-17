@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { sampleFlights } from '../data/flights';
+import { businessInfo } from '../data/businessInfo';
+import { formatWhatsAppBookingMessage, createWhatsAppUrl, openWhatsAppConversation } from '../utils/whatsapp';
 
 export default function BookingPage() {
   const [searchParams] = useSearchParams();
@@ -68,18 +70,57 @@ export default function BookingPage() {
     }
 
     setIsSubmitting(true);
+
+    const refNumber = 'FN-' + Math.floor(100000 + Math.random() * 900000);
+    const calculatedTotal = selectedFlight.price * adultsCount;
+    const customerFullName = `${formData.title} ${formData.firstName.trim()} ${formData.lastName.trim()}`.trim();
+
+    const additionalReqs = [
+      formData.specialRequests ? `Special requests: ${formData.specialRequests}` : '',
+      formData.travelDocument
+        ? `Document: ${formData.travelDocument} (${formData.documentNumber}), Exp: ${formData.expiryDate}`
+        : '',
+      formData.nationality ? `Nationality: ${formData.nationality}` : ''
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const message = formatWhatsAppBookingMessage({
+      enquiryType: 'Flight Booking Lead',
+      reference: refNumber,
+      customerName: customerFullName,
+      email: formData.email.trim(),
+      phone: formData.contactNumber.trim(),
+      departureCity: selectedFlight.fromLocation,
+      destination: selectedFlight.toLocation,
+      departureDate: selectedFlight.dateFormatted || selectedFlight.date,
+      passengers: `${adultsCount} Adult${adultsCount > 1 ? 's' : ''}`,
+      cabinClass: selectedFlight.cabinClass || (cabinClass === 'Y' ? 'Economy' : cabinClass),
+      serviceOrPackage: `${selectedFlight.airline} (${selectedFlight.flightNumber})`,
+      estimatedFare: `A$ ${calculatedTotal.toFixed(2)}`,
+      additionalRequirements: additionalReqs,
+      sourcePage: 'Passenger Booking Form'
+    });
+
+    const whatsappUrl = createWhatsAppUrl(message);
+
+    // Attempt to open WhatsApp directly from the submission click
+    openWhatsAppConversation(whatsappUrl);
+
     setTimeout(() => {
-      const refNumber = 'FC-' + Math.floor(100000 + Math.random() * 900000);
       navigate('/booking-confirmation', {
         state: {
           reference: refNumber,
           passenger: formData,
           flight: selectedFlight,
           cabinClass: cabinClass,
-          adultsCount: adultsCount
+          adultsCount: adultsCount,
+          totalPrice: calculatedTotal,
+          whatsappUrl: whatsappUrl,
+          whatsappMessage: message
         }
       });
-    }, 600);
+    }, 400);
   };
 
   const taxesAndFees = 68.50;
@@ -92,7 +133,7 @@ export default function BookingPage() {
         <div className="mb-8">
           <h1 className="text-3xl font-black text-[#00204C]">Passenger Details</h1>
           <p className="text-sm text-gray-500 mt-1">
-            Please enter passenger information exactly as shown on the travel passport or document.
+            Please enter passenger information exactly as shown on the travel passport or document. Your enquiry will be routed to {businessInfo.brandName} via WhatsApp.
           </p>
         </div>
 

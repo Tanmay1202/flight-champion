@@ -5,7 +5,7 @@ export const googleReviews = [
     avatar: 'https://lh3.googleusercontent.com/a-/ALV-UjV_abc123',
     rating: 5,
     time: '2 weeks ago',
-    text: 'I booked my flights from Melbourne to Delhi through Flights Champion. The service was exceptional! They found the best routing at an unbeatable price. Special thanks to the support team for accommodating our seating requests.',
+    text: 'I booked my flights from Melbourne to Delhi through FlyNest Travel. The service was exceptional! They found the best routing at an unbeatable price. Special thanks to the support team for accommodating our seating requests.',
     initial: 'J',
     initialBg: 'bg-emerald-600'
   },
@@ -15,7 +15,7 @@ export const googleReviews = [
     avatar: 'https://lh3.googleusercontent.com/a-/ALV-UjW_xyz456',
     rating: 5,
     time: '1 month ago',
-    text: 'Highly recommend Flights Champion to anyone looking for reliable travel booking. When our date needed changing, their customer support handled everything seamlessly without exorbitant fees. Truly grateful for their personal touch!',
+    text: 'Highly recommend FlyNest Travel to anyone looking for reliable travel booking. When our date needed changing, their customer support handled everything seamlessly without exorbitant fees. Truly grateful for their personal touch!',
     initial: 'S',
     initialBg: 'bg-blue-600'
   },

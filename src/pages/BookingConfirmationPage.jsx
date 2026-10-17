@@ -1,16 +1,41 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { businessInfo } from '../data/businessInfo';
+import { createWhatsAppUrl } from '../utils/whatsapp';
 
 export default function BookingConfirmationPage() {
   const location = useLocation();
   const state = location.state || {};
-  const { reference = 'FC-839201', passenger, flight, cabinClass = 'Economy' } = state;
+  const {
+    reference = 'FN-839201',
+    passenger,
+    flight,
+    cabinClass = 'Economy',
+    whatsappUrl: passedWhatsAppUrl
+  } = state;
+
+  const defaultWaUrl = createWhatsAppUrl(
+    `Hello FlyNest Travel,\n\nI am inquiring about booking reference ${reference}.\n\nSource: FlyNest Travel website\n\nThank you.`
+  );
+
+  const activeWhatsAppUrl = passedWhatsAppUrl || defaultWaUrl;
 
   return (
     <div className="min-h-screen bg-[#F1F5F9] py-14 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         {/* Success Card */}
         <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-8 sm:p-12 text-center mb-8">
+          {/* Logo */}
+          <div className="mb-6 flex justify-center">
+            <div className="bg-white rounded-xl p-2 border border-gray-100 shadow-xs inline-flex">
+              <img
+                src={businessInfo.logo}
+                alt={businessInfo.brandName}
+                className="h-14 w-auto object-contain"
+              />
+            </div>
+          </div>
+
           <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl shadow-inner">
             <i className="fa fa-check"></i>
           </div>
@@ -19,16 +44,40 @@ export default function BookingConfirmationPage() {
             Booking Enquiry Received!
           </h1>
           <p className="text-sm text-gray-500 max-w-md mx-auto mb-6">
-            Thank you for choosing Flights Champion. Your enquiry has been registered and our ticketing team is currently verifying airline fare rules and availability.
+            Thank you for choosing {businessInfo.brandName}. Your booking enquiry has been registered
+            and prepared for our ticketing team.
           </p>
 
-          <div className="inline-block bg-blue-50/80 border border-blue-200 rounded-xl px-6 py-3.5 mb-8">
+          <div className="inline-block bg-blue-50/80 border border-blue-200 rounded-xl px-6 py-3.5 mb-6">
             <span className="text-xs uppercase font-extrabold tracking-widest text-gray-500 mr-2">
               Booking Reference:
             </span>
             <span className="text-lg font-black text-[#00204C] tracking-wider font-mono">
               {reference}
             </span>
+          </div>
+
+          {/* WhatsApp Direct Action Box */}
+          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 mb-8 text-left space-y-3">
+            <div className="flex items-center gap-2.5 text-emerald-900 font-bold text-sm">
+              <i className="fab fa-whatsapp text-2xl text-emerald-600"></i>
+              <span>Complete Your Enquiry on WhatsApp</span>
+            </div>
+            <p className="text-xs text-emerald-800 leading-relaxed">
+              We opened a WhatsApp chat with <strong>{businessInfo.brandName} ({businessInfo.whatsapp.display})</strong> containing your travel itinerary and passenger details.
+              <strong className="block mt-1">Please confirm you pressed "Send" in WhatsApp so our team receives your request.</strong>
+            </p>
+            <div className="pt-1">
+              <a
+                href={activeWhatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-lg transition-colors shadow-xs"
+              >
+                <i className="fab fa-whatsapp text-sm"></i>
+                <span>Open / Re-send in WhatsApp</span>
+              </a>
+            </div>
           </div>
 
           <div className="border-t border-gray-100 pt-6 text-left space-y-6">
@@ -106,7 +155,16 @@ export default function BookingConfirmationPage() {
                 <span>What happens next?</span>
               </div>
               <p>
-                Our travel consultants will review your fare and contact you via email or phone at <strong>+61-290372197</strong> with confirmed itinerary details and ticket issuing confirmation.
+                Our travel consultants will review your fare rules and contact you via WhatsApp at{' '}
+                <strong>{businessInfo.whatsapp.display}</strong>, phone at{' '}
+                <a href={businessInfo.phone.telLink} className="underline font-bold">
+                  {businessInfo.phone.display}
+                </a>
+                , or email at{' '}
+                <a href={businessInfo.email.mailLink} className="underline font-bold">
+                  {businessInfo.email.address}
+                </a>{' '}
+                with confirmed itinerary details and payment instructions.
               </p>
             </div>
           </div>

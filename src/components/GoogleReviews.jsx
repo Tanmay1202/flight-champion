@@ -9,8 +9,15 @@ export default function GoogleReviews() {
     setActiveShareId(activeShareId === id ? null : id);
   };
 
+  const getShareUrl = () => {
+    if (typeof window !== 'undefined') {
+      return window.location.origin;
+    }
+    return 'https://flynesttravels.com.au';
+  };
+
   const handleCopyLink = (id) => {
-    navigator.clipboard.writeText('https://flightschampion.com.au/');
+    navigator.clipboard.writeText(getShareUrl());
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   };
@@ -62,7 +69,7 @@ export default function GoogleReviews() {
               {/* Review Card Footer */}
               <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-600 relative">
                 <a
-                  href="https://www.google.com/search?q=flights+champion+australia+reviews"
+                  href="https://www.google.com/search?q=flynest+travel+pty+ltd+australia+reviews"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2 font-semibold hover:text-[#00204C] transition-colors"
@@ -103,7 +110,7 @@ export default function GoogleReviews() {
                   {activeShareId === review.id && (
                     <div className="absolute right-0 bottom-full mb-2 bg-white border border-gray-200 shadow-xl rounded-lg py-2 px-3 flex items-center gap-3 z-30">
                       <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://flightschampion.com.au')}`}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(getShareUrl())}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-blue-600 hover:opacity-80 text-sm"
@@ -112,7 +119,7 @@ export default function GoogleReviews() {
                         <i className="fab fa-facebook-f"></i>
                       </a>
                       <a
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://flightschampion.com.au')}`}
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(getShareUrl())}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-blue-700 hover:opacity-80 text-sm"
@@ -121,7 +128,7 @@ export default function GoogleReviews() {
                         <i className="fab fa-linkedin-in"></i>
                       </a>
                       <a
-                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent('https://flightschampion.com.au')}`}
+                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(getShareUrl())}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-gray-900 hover:opacity-80 text-sm"

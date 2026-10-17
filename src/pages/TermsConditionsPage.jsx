@@ -1,4 +1,5 @@
 import React from 'react';
+import { businessInfo } from '../data/businessInfo';
 
 export default function TermsConditionsPage() {
   return (
@@ -19,14 +20,14 @@ export default function TermsConditionsPage() {
       <div className="max-w-[1000px] mx-auto px-4 sm:px-6 my-10">
         <div className="bg-white rounded-2xl p-6 sm:p-12 shadow-sm border border-gray-200 text-gray-700 text-sm sm:text-base leading-relaxed space-y-6">
           <p>
-            Welcome to <strong>flightschampion.com.au</strong> (the “Website”). This Website is owned and operated by{' '}
-            <strong>FLIGHTS CHAMPION</strong> (ABN: <strong>86 638 581 558</strong>) (referred to as “Flights Champion”,
+            Welcome to <strong>{businessInfo.brandName}</strong> (the “Website”). This Website is owned and operated by{' '}
+            <strong>{businessInfo.legalName}</strong> ({businessInfo.abnFormatted}) (referred to as “{businessInfo.brandName}”,
             “we”, “us”, or “our”).
           </p>
 
           <p>
-            Please read these Terms and Conditions carefully before using our Website or making any flight bookings. By
-            accessing our Website, using our services, or making a booking, you agree to be bound by these Terms and
+            Please read these Terms and Conditions carefully before using our Website or making any flight enquiries or bookings. By
+            accessing our Website, using our services, or submitting a booking enquiry, you agree to be bound by these Terms and
             Conditions, our Privacy Policy, and the specific terms and conditions of the airlines and other third-party
             travel service providers involved in your booking.
           </p>
@@ -42,7 +43,7 @@ export default function TermsConditionsPage() {
 
           <h3 className="text-base font-extrabold text-[#00204C]">1.1 Agency Only</h3>
           <p>
-            Flights Champion acts as an independent travel agent. We arrange and facilitate flight bookings on behalf of third-party airlines and suppliers. We do not own, manage, or operate aircraft or flight services. When you make a booking through us, your contract for flight carriage is directly with the airline, subject to their terms and conditions of carriage.
+            {businessInfo.brandName} acts as an independent travel agent. We arrange and facilitate flight bookings on behalf of third-party airlines and suppliers. We do not own, manage, or operate aircraft or flight services. When you make a booking through us, your contract for flight carriage is directly with the airline, subject to their terms and conditions of carriage.
           </p>
 
           <h3 className="text-base font-extrabold text-[#00204C]">1.2 Supplier Terms</h3>
@@ -60,7 +61,7 @@ export default function TermsConditionsPage() {
           </p>
 
           <p>
-            Payment must be received in full before tickets can be issued. Prices quoted on the Website are in Australian Dollars (AUD) unless explicitly stated otherwise. We accept approved payment methods including electronic funds transfer, PayID, and authorized credit/debit cards.
+            Payment must be received in full before tickets can be issued. Prices quoted on the Website are in Australian Dollars (AUD) unless explicitly stated otherwise. We accept approved Australian payment methods including electronic funds transfer, PayID, and authorized credit/debit cards.
           </p>
 
           {/* Section 3 */}
@@ -82,7 +83,7 @@ export default function TermsConditionsPage() {
           </p>
 
           <p>
-            In addition to any airline fees, Flights Champion may charge a reasonable administrative processing fee to cover the costs associated with amending or cancelling travel arrangements on your behalf.
+            In addition to any airline fees, {businessInfo.brandName} may charge a reasonable administrative processing fee to cover the costs associated with amending or cancelling travel arrangements on your behalf.
           </p>
 
           {/* Section 5 */}
@@ -106,12 +107,12 @@ export default function TermsConditionsPage() {
 
           <h3 className="text-base font-extrabold text-[#00204C]">6.2 Disclaimer</h3>
           <p>
-            Flights Champion is not liable for airline schedule changes, cancellations, flight delays, mechanical issues, industrial action, bad weather, force majeure events, or baggage loss or damage caused by airlines or third parties.
+            {businessInfo.brandName} is not liable for airline schedule changes, cancellations, flight delays, mechanical issues, industrial action, bad weather, force majeure events, or baggage loss or damage caused by airlines or third parties.
           </p>
 
           <h3 className="text-base font-extrabold text-[#00204C]">6.3 Indirect and Consequential Loss</h3>
           <p>
-            To the extent permitted by law, Flights Champion will not be liable for indirect, special, economic, or consequential loss or damage arising from your use of the Website or our services. Nothing in these Terms and Conditions limits liability where such limitation is prohibited by applicable law.
+            To the extent permitted by law, {businessInfo.brandName} will not be liable for indirect, special, economic, or consequential loss or damage arising from your use of the Website or our services. Nothing in these Terms and Conditions limits liability where such limitation is prohibited by applicable law.
           </p>
 
           {/* Section 7 */}
@@ -121,7 +122,7 @@ export default function TermsConditionsPage() {
 
           <h3 className="text-base font-extrabold text-[#00204C]">7.1 Ownership</h3>
           <p>
-            All content on this Website, including text, graphics, logos, images, software, design, and other materials, is owned by Flights Champion or its licensors and is protected by applicable Australian and international intellectual property laws.
+            All content on this Website, including text, graphics, logos, images, software, design, and other materials, is owned by {businessInfo.brandName} or its licensors and is protected by applicable Australian and international intellectual property laws.
           </p>
 
           <h3 className="text-base font-extrabold text-[#00204C]">7.2 Limited Licence</h3>
@@ -135,7 +136,7 @@ export default function TermsConditionsPage() {
           </div>
 
           <p>
-            These Terms and Conditions are governed by and construed in accordance with the laws of the Australian Capital Territory (ACT), Australia. You agree to submit to the non-exclusive jurisdiction of the courts of the ACT.
+            These Terms and Conditions are governed by and construed in accordance with the laws of South Australia (SA), Australia. You agree to submit to the non-exclusive jurisdiction of the courts of South Australia.
           </p>
 
           {/* Section 9 */}
@@ -146,11 +147,12 @@ export default function TermsConditionsPage() {
           <p>
             For any queries or assistance regarding these Terms and Conditions, please contact us at:
           </p>
-          <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 space-y-1 text-sm font-semibold">
-            <p><strong>Flights Champion</strong> (ABN: 86 638 581 558)</p>
-            <p>Address: 7 SLATER PL EVATT, 2617 ACT, Australia</p>
-            <p>Phone: <a href="tel:+61290372197" className="text-blue-600 hover:underline">+61-290372197</a></p>
-            <p>Email: <a href="mailto:info@flightschampion.com.au" className="text-blue-600 hover:underline">info@flightschampion.com.au</a></p>
+          <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 space-y-1.5 text-sm font-semibold">
+            <p><strong>{businessInfo.legalName}</strong> ({businessInfo.abnFormatted})</p>
+            <p>Address: {businessInfo.address.full}</p>
+            <p>Phone: <a href={businessInfo.phone.telLink} className="text-blue-600 hover:underline">{businessInfo.phone.display}</a></p>
+            <p>WhatsApp: <a href={businessInfo.whatsapp.waLink} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">{businessInfo.whatsapp.display}</a></p>
+            <p>Email: <a href={businessInfo.email.mailLink} className="text-blue-600 hover:underline">{businessInfo.email.address}</a></p>
           </div>
         </div>
       </div>

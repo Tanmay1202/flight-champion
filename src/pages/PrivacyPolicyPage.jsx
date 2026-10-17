@@ -1,4 +1,5 @@
 import React from 'react';
+import { businessInfo } from '../data/businessInfo';
 
 export default function PrivacyPolicyPage() {
   return (
@@ -10,7 +11,7 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="text-xs text-gray-500 uppercase tracking-widest mt-2">
-            Flights Champion • Australian Privacy Principles (APPs)
+            {businessInfo.brandName} • Australian Privacy Principles (APPs)
           </p>
         </div>
       </div>
@@ -18,7 +19,8 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-[1000px] mx-auto px-4 sm:px-6 my-10">
         <div className="bg-white rounded-2xl p-6 sm:p-12 shadow-sm border border-gray-200 text-gray-700 text-sm sm:text-base leading-relaxed space-y-6">
           <p>
-            At <strong>Flights Champion</strong> (ABN: <strong>86 638 581 558</strong>), we are committed to protecting the privacy and confidentiality of your personal information. This Privacy Policy sets out how we collect, use, disclose, manage, and protect your personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs).
+            At <strong>{businessInfo.legalName}</strong> ({businessInfo.abnFormatted}), trading as{' '}
+            <strong>{businessInfo.brandName}</strong>, we are committed to protecting the privacy and confidentiality of your personal information. This Privacy Policy sets out how we collect, use, disclose, manage, and protect your personal information in accordance with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs).
           </p>
 
           <div className="border-l-4 border-blue-600 bg-blue-50/60 p-4 rounded-r-lg font-bold text-lg sm:text-xl text-[#00204C] my-6">
@@ -40,7 +42,7 @@ export default function PrivacyPolicyPage() {
             2. How We Collect Personal Information
           </div>
           <p>
-            We collect personal information directly from you when you submit a booking enquiry through our website, make a reservation via telephone, contact us via email, or subscribe to our newsletter and promotional travel updates.
+            We collect personal information directly from you when you submit a booking enquiry through our website, make a reservation via telephone or WhatsApp, contact us via email, or subscribe to our promotional travel updates.
           </p>
 
           <div className="border-l-4 border-blue-600 bg-blue-50/60 p-4 rounded-r-lg font-bold text-lg sm:text-xl text-[#00204C] my-6">
@@ -54,7 +56,7 @@ export default function PrivacyPolicyPage() {
             <li>Communicate with you regarding changes, flight delays, ticketing schedules, or itinerary updates</li>
             <li>Provide customer support, process refunds, or address booking enquiries</li>
             <li>Verify identity and ensure compliance with border security and civil aviation regulations</li>
-            <li>Send newsletters and special airfare offers where you have consented to receive marketing</li>
+            <li>Send travel deal alerts and airfare updates where you have consented to receive marketing</li>
           </ul>
 
           <div className="border-l-4 border-blue-600 bg-blue-50/60 p-4 rounded-r-lg font-bold text-lg sm:text-xl text-[#00204C] my-6">
@@ -89,11 +91,12 @@ export default function PrivacyPolicyPage() {
           <p>
             If you have questions, feedback, or complaints regarding our privacy practices, please contact our Privacy Officer at:
           </p>
-          <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 text-sm font-semibold space-y-1">
-            <p><strong>Flights Champion</strong> (ABN: 86 638 581 558)</p>
-            <p>Address: 7 SLATER PL EVATT, 2617 ACT, Australia</p>
-            <p>Phone: <a href="tel:+61290372197" className="text-blue-600 hover:underline">+61-290372197</a></p>
-            <p>Email: <a href="mailto:info@flightschampion.com.au" className="text-blue-600 hover:underline">info@flightschampion.com.au</a></p>
+          <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 text-sm font-semibold space-y-1.5">
+            <p><strong>{businessInfo.legalName}</strong> ({businessInfo.abnFormatted})</p>
+            <p>Address: {businessInfo.address.full}</p>
+            <p>Phone: <a href={businessInfo.phone.telLink} className="text-blue-600 hover:underline">{businessInfo.phone.display}</a></p>
+            <p>WhatsApp: <a href={businessInfo.whatsapp.waLink} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">{businessInfo.whatsapp.display}</a></p>
+            <p>Email: <a href={businessInfo.email.mailLink} className="text-blue-600 hover:underline">{businessInfo.email.address}</a></p>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { businessInfo } from '../data/businessInfo';
 
 export default function ExperienceSection() {
   const cards = [
@@ -40,7 +41,7 @@ export default function ExperienceSection() {
         {/* Section Header */}
         <div className="max-w-[780px] mx-auto mb-14 text-center">
           <span className="inline-block mb-4 text-[#b08a3e] text-xs font-bold tracking-[2.5px] uppercase">
-            THE FLIGHTS CHAMPION EXPERIENCE
+            THE {businessInfo.brandName.toUpperCase()} EXPERIENCE
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#172b4d] tracking-tight mb-4">
             Travel With <span className="text-[#b08a3e]">Confidence</span>
@@ -93,7 +94,7 @@ export default function ExperienceSection() {
               </p>
               <p>
                 It's about thoughtful recommendations, attention to detail and knowing that when you
-                choose Flights Champion, there are real people behind your journey.
+                choose {businessInfo.brandName}, there are real people behind your journey.
               </p>
               <p>
                 Wherever you're flying, whether across the country or across the world, discover a
@@ -107,7 +108,7 @@ export default function ExperienceSection() {
         <div className="pt-16 text-center">
           <div className="w-14 h-0.5 bg-[#b08a3e] mx-auto mb-6" />
           <h3 className="text-2xl sm:text-3xl font-extrabold text-[#172b4d] mb-2">
-            Flights Champion
+            {businessInfo.brandName}
           </h3>
           <p className="text-[#b08a3e] text-sm font-bold tracking-[2px] uppercase">
             The World Within Reach.

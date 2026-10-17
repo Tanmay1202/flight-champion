@@ -2,6 +2,7 @@ import React from 'react';
 import ExperienceSection from '../components/ExperienceSection';
 import AirlinePartners from '../components/AirlinePartners';
 import GoogleReviews from '../components/GoogleReviews';
+import { businessInfo } from '../data/businessInfo';
 
 export default function AboutPage() {
   return (
@@ -13,7 +14,7 @@ export default function AboutPage() {
             About Us
           </h1>
           <p className="text-sm text-gray-500 mt-2 max-w-xl mx-auto">
-            Flights Champion is an Australian-based international travel agency and flight booking specialist.
+            {businessInfo.brandName} is an Australian-based international travel agency and flight booking specialist.
           </p>
         </div>
       </div>
@@ -21,11 +22,26 @@ export default function AboutPage() {
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 my-10 space-y-12">
         {/* Main Introduction Card */}
         <div className="bg-white rounded-2xl p-6 sm:p-12 shadow-sm border border-gray-200 space-y-5 text-gray-700 leading-relaxed">
-          <h2 className="text-2xl font-black text-[#00204C]">
-            A More Considered Way to Fly
-          </h2>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="bg-white rounded-xl p-2 border border-gray-100 shadow-xs">
+              <img
+                src={businessInfo.logo}
+                alt={businessInfo.brandName}
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+            <div>
+              <h2 className="text-2xl font-black text-[#00204C]">
+                A More Considered Way to Fly
+              </h2>
+              <p className="text-xs text-[#E8A500] font-bold uppercase tracking-wider">
+                {businessInfo.legalName} • {businessInfo.abnFormatted}
+              </p>
+            </div>
+          </div>
+
           <p className="text-base sm:text-lg">
-            Flights Champion is an international travel agency and flight booking specialist, bringing together global reach, travel expertise and personalized service to create a more considered way to fly.
+            {businessInfo.brandName} is an international travel agency and flight booking specialist, bringing together global reach, travel expertise and personalized service to create a more considered way to fly.
           </p>
           <p className="text-base sm:text-lg">
             Whether you're searching for international flights, competitive airfares, airline tickets, economy flights, business class flights or journeys to destinations around the world, our focus is on helping you find an option that suits the way you want to travel.
@@ -71,22 +87,51 @@ export default function AboutPage() {
         {/* Business Credentials Card */}
         <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200">
           <h3 className="text-lg font-black text-[#00204C] mb-4">Company Details</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-            <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
-              <span className="text-gray-400 block font-bold uppercase mb-1">Company</span>
-              <span className="font-bold text-gray-900">Flights Champion</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+              <span className="text-gray-400 block font-bold uppercase mb-1">Legal Business Name</span>
+              <span className="font-bold text-gray-900 text-sm">{businessInfo.legalName}</span>
             </div>
-            <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
-              <span className="text-gray-400 block font-bold uppercase mb-1">ABN</span>
-              <span className="font-bold text-gray-900">86 638 581 558</span>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+              <span className="text-gray-400 block font-bold uppercase mb-1">Trading Name</span>
+              <span className="font-bold text-gray-900 text-sm">{businessInfo.brandName}</span>
             </div>
-            <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
-              <span className="text-gray-400 block font-bold uppercase mb-1">Location</span>
-              <span className="font-bold text-gray-900">EVATT, 2617 ACT, Australia</span>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+              <span className="text-gray-400 block font-bold uppercase mb-1">Australian Business Number (ABN)</span>
+              <span className="font-bold text-gray-900 text-sm">{businessInfo.abn}</span>
             </div>
-            <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
-              <span className="text-gray-400 block font-bold uppercase mb-1">Telephone</span>
-              <span className="font-bold text-gray-900">+61-290372197</span>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+              <span className="text-gray-400 block font-bold uppercase mb-1">Australian Address</span>
+              <span className="font-bold text-gray-900 text-sm">{businessInfo.address.full}</span>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+              <span className="text-gray-400 block font-bold uppercase mb-1">Calling Number</span>
+              <a
+                href={businessInfo.phone.telLink}
+                className="font-bold text-blue-600 hover:underline text-sm block"
+              >
+                {businessInfo.phone.display}
+              </a>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+              <span className="text-gray-400 block font-bold uppercase mb-1">WhatsApp &amp; Enquiries</span>
+              <a
+                href={businessInfo.whatsapp.waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-emerald-600 hover:underline text-sm block"
+              >
+                {businessInfo.whatsapp.display}
+              </a>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 sm:col-span-2 lg:col-span-3">
+              <span className="text-gray-400 block font-bold uppercase mb-1">Email Address</span>
+              <a
+                href={businessInfo.email.mailLink}
+                className="font-bold text-blue-600 hover:underline text-sm"
+              >
+                {businessInfo.email.address}
+              </a>
             </div>
           </div>
         </div>

@@ -3,6 +3,9 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { sampleFlights } from '../data/flights';
 import FlightDetailsModal from '../components/FlightDetailsModal';
 import Toast from '../components/Toast';
+import WhatsAppLeadModal from '../components/WhatsAppLeadModal';
+import { businessInfo } from '../data/businessInfo';
+import { formatWhatsAppBookingMessage, createWhatsAppUrl, openWhatsAppConversation } from '../utils/whatsapp';
 
 export default function SearchResultsPage() {
   const [searchParams] = useSearchParams();
@@ -28,6 +31,9 @@ export default function SearchResultsPage() {
   const [modalTab, setModalTab] = useState('itinerary');
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
+  const [leadModalOpen, setLeadModalOpen] = useState(false);
+  const [leadModalUrl, setLeadModalUrl] = useState('');
+  const [leadModalMessage, setLeadModalMessage] = useState('');
 
   // Top edit bar state
   const [editFrom, setEditFrom] = useState(fromParam);
@@ -82,14 +88,29 @@ export default function SearchResultsPage() {
   };
 
   const handleWhatsApp = (flight) => {
-    const message = `Hi Flights Champion! I am interested in flight: ${flight.airline} (${flight.flightNumber}) from ${flight.fromLocation} to ${flight.toLocation} on ${flight.date} for A$ ${flight.price.toFixed(2)}`;
-    window.open(`https://api.whatsapp.com/send?phone=61290372197&text=${encodeURIComponent(message)}`, '_blank');
+    const message = formatWhatsAppBookingMessage({
+      enquiryType: 'Flight Fare Enquiry',
+      departureCity: flight.fromLocation,
+      destination: flight.toLocation,
+      departureDate: flight.dateFormatted || flight.date,
+      passengers: `${adultsParam} Adult${parseInt(adultsParam, 10) > 1 ? 's' : ''}`,
+      serviceOrPackage: `${flight.airline} (${flight.flightNumber})`,
+      cabinClass: flight.cabinClass || (cabinClassParam === 'Y' ? 'Economy' : cabinClassParam),
+      estimatedFare: `A$ ${flight.price.toFixed(2)}`,
+      additionalRequirements: `Departure: ${flight.depTime}, Arrival: ${flight.arrTime}. Route: ${flight.fromLocation} to ${flight.toLocation} (${flight.stopsLabel}).`,
+      sourcePage: 'Search Results'
+    });
+    const url = createWhatsAppUrl(message);
+    setLeadModalMessage(message);
+    setLeadModalUrl(url);
+    openWhatsAppConversation(url);
+    setLeadModalOpen(true);
   };
 
   const handleEmail = (flight) => {
     const subject = `Flight Enquiry: ${flight.fromLocation} to ${flight.toLocation} (${flight.airline})`;
-    const body = `Hello Flights Champion,\n\nI would like to enquire about the following flight:\nAirline: ${flight.airline}\nFlight: ${flight.flightNumber}\nRoute: ${flight.fromLocation} to ${flight.toLocation}\nDeparture: ${flight.depTime} (${flight.date})\nArrival: ${flight.arrTime}\nPrice: A$ ${flight.price.toFixed(2)}\n\nPlease contact me regarding booking this flight.\n\nThank you!`;
-    window.location.href = `mailto:info@flightschampion.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const body = `Hello ${businessInfo.brandName},\n\nI would like to enquire about the following flight:\nAirline: ${flight.airline}\nFlight: ${flight.flightNumber}\nRoute: ${flight.fromLocation} to ${flight.toLocation}\nDeparture: ${flight.depTime} (${flight.date})\nArrival: ${flight.arrTime}\nPrice: A$ ${flight.price.toFixed(2)}\n\nPlease contact me regarding availability and booking this flight.\n\nThank you!`;
+    window.location.href = `mailto:${businessInfo.email.address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const handleCopyClipboard = (flight) => {
@@ -116,6 +137,15 @@ export default function SearchResultsPage() {
         flight={selectedFlightForModal}
         activeTab={modalTab}
         onClose={() => setSelectedFlightForModal(null)}
+      />
+
+      {/* WhatsApp Lead Generation Modal */}
+      <WhatsAppLeadModal
+        isOpen={leadModalOpen}
+        onClose={() => setLeadModalOpen(false)}
+        whatsappUrl={leadModalUrl}
+        enquiryType="Flight Fare Enquiry"
+        previewMessage={leadModalMessage}
       />
 
       {/* Top Search Modification Bar matching reference recording */}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { businessInfo } from '../data/businessInfo';
 
 export default function AboutSection() {
   return (
@@ -6,14 +7,14 @@ export default function AboutSection() {
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#00204C]">
-            About Flights Champion
+            About {businessInfo.brandName}
           </h2>
         </div>
 
         <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-6 sm:p-10 max-w-4xl mx-auto">
           <div className="space-y-4 text-gray-700 text-base sm:text-lg leading-relaxed">
             <p>
-              Flights Champion is an international travel agency and flight booking specialist,
+              {businessInfo.brandName} is an international travel agency and flight booking specialist,
               bringing together global reach, travel expertise and personalized service to create a
               more considered way to fly.
             </p>
