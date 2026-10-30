@@ -1,6 +1,6 @@
 export const businessInfo = {
-  legalName: 'FLYNEST TRAVEL PTY LTD.',
-  brandName: 'FlyNest Travel',
+  legalName: 'FLYNEST TRAVELS PTY LTD.',
+  brandName: 'FlyNest Travels',
   abn: '67 701 944 452',
   abnFormatted: 'ABN: 67 701 944 452',
   address: {

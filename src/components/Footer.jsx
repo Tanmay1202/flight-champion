@@ -33,7 +33,7 @@ export default function Footer() {
                 <a
                   href={businessInfo.phone.telLink}
                   className="hover:text-[#E8A500] transition-colors"
-                  title="Call FlyNest Travel"
+                  title="Call FlyNest Travels"
                 >
                   {businessInfo.phone.display}
                 </a>
@@ -45,7 +45,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-emerald-400 transition-colors"
-                  title="WhatsApp FlyNest Travel"
+                  title="WhatsApp FlyNest Travels"
                 >
                   {businessInfo.whatsapp.display} (WhatsApp)
                 </a>
@@ -55,7 +55,7 @@ export default function Footer() {
                 <a
                   href={businessInfo.email.mailLink}
                   className="hover:text-[#E8A500] transition-colors"
-                  title="Email FlyNest Travel"
+                  title="Email FlyNest Travels"
                 >
                   {businessInfo.email.address}
                 </a>

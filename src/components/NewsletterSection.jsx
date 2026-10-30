@@ -32,7 +32,7 @@ export default function NewsletterSection() {
       enquiryType: 'Deals & Newsletter Subscription',
       email: email.trim(),
       additionalRequirements:
-        'Please add me to the FlyNest Travel subscriber list for exclusive international airfares, special travel deals, and destination updates.',
+        'Please add me to the FlyNest Travels subscriber list for exclusive international airfares, special travel deals, and destination updates.',
       sourcePage: 'Homepage (Newsletter Section)'
     });
 

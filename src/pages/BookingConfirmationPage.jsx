@@ -15,7 +15,7 @@ export default function BookingConfirmationPage() {
   } = state;
 
   const defaultWaUrl = createWhatsAppUrl(
-    `Hello FlyNest Travel,\n\nI am inquiring about booking reference ${reference}.\n\nSource: FlyNest Travel website\n\nThank you.`
+    `Hello FlyNest Travels,\n\nI am inquiring about booking reference ${reference}.\n\nSource: FlyNest Travels website\n\nThank you.`
   );
 
   const activeWhatsAppUrl = passedWhatsAppUrl || defaultWaUrl;

@@ -24,7 +24,7 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 h-[72px] flex items-center justify-between">
         {/* Brand Logo */}
         <div className="flex-shrink-0">
-          <Link to="/" className="flex items-center gap-2 group" aria-label="FlyNest Travel Home">
+          <Link to="/" className="flex items-center gap-2 group" aria-label="FlyNest Travels Home">
             <div className="bg-white rounded-lg p-1 shadow-sm flex items-center justify-center">
               <img
                 src={businessInfo.logo}
@@ -34,7 +34,7 @@ export default function Header() {
             </div>
             <div className="hidden min-[420px]:flex flex-col">
               <span className="text-white font-black text-base sm:text-lg tracking-tight leading-none group-hover:text-[#E8A500] transition-colors">
-                FlyNest <span className="text-[#E8A500]">Travel</span>
+                FlyNest <span className="text-[#E8A500]">Travels</span>
               </span>
               <span className="text-[9px] text-gray-300 uppercase tracking-widest font-semibold mt-0.5">
                 PTY LTD
@@ -101,7 +101,7 @@ export default function Header() {
           <a
             href={businessInfo.phone.telLink}
             className="flex items-center gap-2 hover:text-[#E8A500] transition-colors"
-            title={`Call FlyNest Travel at ${businessInfo.phone.display}`}
+            title={`Call FlyNest Travels at ${businessInfo.phone.display}`}
           >
             <i className="fa fa-phone-alt text-xs text-[#E8A500]"></i>
             <span>{businessInfo.phone.display}</span>
@@ -115,14 +115,14 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-sm"
-            aria-label="WhatsApp FlyNest Travel"
+            aria-label="WhatsApp FlyNest Travels"
           >
             <i className="fab fa-whatsapp"></i>
           </a>
           <a
             href={businessInfo.phone.telLink}
             className="w-8 h-8 rounded-full bg-white/10 text-[#E8A500] flex items-center justify-center text-xs"
-            aria-label="Call FlyNest Travel"
+            aria-label="Call FlyNest Travels"
           >
             <i className="fa fa-phone-alt"></i>
           </a>

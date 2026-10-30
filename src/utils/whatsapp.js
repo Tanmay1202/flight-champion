@@ -21,10 +21,10 @@ export function formatWhatsAppBookingMessage({
   cabinClass = '',
   estimatedFare = '',
   additionalRequirements = '',
-  sourcePage = 'FlyNest Travel website'
+  sourcePage = 'FlyNest Travels website'
 }) {
   const lines = [
-    'Hello FlyNest Travel,',
+    'Hello FlyNest Travels,',
     '',
     'I would like to make a travel booking enquiry.',
     '',
@@ -67,7 +67,7 @@ export function formatWhatsAppBookingMessage({
   }
 
   lines.push('');
-  lines.push(`Source: FlyNest Travel website (${sourcePage})`);
+  lines.push(`Source: FlyNest Travels website (${sourcePage})`);
   lines.push('');
   lines.push('Please contact me regarding availability, pricing, and the next steps for this booking enquiry.');
   lines.push('');
@@ -77,7 +77,7 @@ export function formatWhatsAppBookingMessage({
 }
 
 /**
- * URL-encodes the message and returns the official WhatsApp URL for FlyNest Travel.
+ * URL-encodes the message and returns the official WhatsApp URL for FlyNest Travels.
  */
 export function createWhatsAppUrl(message) {
   return `https://wa.me/${WHATSAPP_DESTINATION_NUMBER}?text=${encodeURIComponent(message)}`;

@@ -1,10 +1,10 @@
-# FlyNest Travel — Australia Flight Booking Platform
+# FlyNest Travels — Australia Flight Booking Platform
 
-A modern, responsive, high-fidelity website for **FlyNest Travel Pty Ltd**. Built using **React 19**, **Tailwind CSS v4**, **React Router v7**, and **Vite**.
+A modern, responsive, high-fidelity website for **FlyNest Travels Pty Ltd**. Built using **React 19**, **Tailwind CSS v4**, **React Router v7**, and **Vite**.
 
 ## Business Information
 
-- **Legal Business Name:** FLYNEST TRAVEL PTY LTD.
+- **Legal Business Name:** FLYNEST TRAVELS PTY LTD.
 - **Australian Business Number (ABN):** 67 701 944 452
 - **Australian Address:** 71 Hunter Cres, Salisbury North SA 5108, Australia
 - **Primary Calling Number:** +61 8 8412 9610 (`tel:+61884129610`)

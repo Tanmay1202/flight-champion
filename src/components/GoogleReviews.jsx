@@ -69,7 +69,7 @@ export default function GoogleReviews() {
               {/* Review Card Footer */}
               <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-600 relative">
                 <a
-                  href="https://www.google.com/search?q=flynest+travel+pty+ltd+australia+reviews"
+                  href="https://www.google.com/search?q=flynest+travels+pty+ltd+australia+reviews"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2 font-semibold hover:text-[#00204C] transition-colors"

@@ -28,7 +28,7 @@ export default function WhatsAppLeadModal({
           </div>
           <h3 className="text-xl font-black">Enquiry Ready in WhatsApp!</h3>
           <p className="text-xs text-white/80 mt-1">
-            Destination: {businessInfo.whatsapp.display} (FlyNest Travel)
+            Destination: {businessInfo.whatsapp.display} (FlyNest Travels)
           </p>
         </div>
 

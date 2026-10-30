@@ -84,7 +84,7 @@ export default function TopDestinationsPage() {
                   Search Flights to {dest.country}
                 </button>
                 <a
-                  href={`https://wa.me/61452571822?text=${encodeURIComponent(`Hello FlyNest Travel,\n\nI would like to make a travel booking enquiry for flights to ${dest.country}.\n\nEnquiry type: Destination Airfare Enquiry\nDestination: ${dest.country}\nStarting fare: ${dest.startingPrice}\n\nSource: FlyNest Travel website\n\nPlease contact me regarding available flight options and deals.\n\nThank you.`)}`}
+                  href={`https://wa.me/61452571822?text=${encodeURIComponent(`Hello FlyNest Travels,\n\nI would like to make a travel booking enquiry for flights to ${dest.country}.\n\nEnquiry type: Destination Airfare Enquiry\nDestination: ${dest.country}\nStarting fare: ${dest.startingPrice}\n\nSource: FlyNest Travels website\n\nPlease contact me regarding available flight options and deals.\n\nThank you.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-colors cursor-pointer text-center flex items-center justify-center gap-1.5 shadow-xs"

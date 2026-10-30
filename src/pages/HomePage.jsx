@@ -70,7 +70,7 @@ export default function HomePage() {
       {/* About Section */}
       <AboutSection />
 
-      {/* FlyNest Travel Experience */}
+      {/* FlyNest Travels Experience */}
       <ExperienceSection />
 
       {/* Newsletter / Deals Subscription */}
